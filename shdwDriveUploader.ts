@@ -1,7 +1,12 @@
 import { ShdwDrive, ShadowFile} from "@shadow-drive/sdk";
 import {clusterApiUrl, Connection, Keypair, PublicKey} from "@solana/web3.js";
+
+// requirements stuff
+
 const fs = require("fs");
 const anchor = require("@project-serum/anchor");
+
+// Load the keypair
 function loadKeypair(filename: string):Keypair{
     const secret = JSON.parse(fs.readFileSync(filename).toString()) as number[]
     const secretKey = Uint8Array.from(secret)
