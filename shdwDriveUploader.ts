@@ -25,16 +25,16 @@ async function createAccountBucket(): Promise<string>{
 }
 
 
-async function UploadCollectionImage(){
+async function UploadCollectionJSON(){
     const drive = await new ShdwDrive(connection, wallet).init();
     const bucket = "CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH";//createAccountBucket();
-    const fileBuff = fs.readFileSync("orca.png"); //https://shdw-drive.genesysgo.net/CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH/orca.png
+    const fileBuff = fs.readFileSync("orca.json"); //https://shdw-drive.genesysgo.net/CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH/orca.png
     const fileToUpload: ShadowFile = {
-        name:'orca.png',
+        name:'orca.json',
         file:fileBuff
     }
 const resp = await drive.uploadFile(new PublicKey(bucket), fileToUpload, "v2");
 console.log(resp.message);
 console.log(resp.finalized_locations);
 };
-UploadCollectionImage();
+UploadCollectionJSON();
