@@ -28,7 +28,7 @@ async function createAccountBucket(): Promise<string>{
 async function UploadCollectionImage(){
     const drive = await new ShdwDrive(connection, wallet).init();
     const bucket = "CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH";//createAccountBucket();
-    const fileBuff = fs.readFileSync("orca.png"); 
+    const fileBuff = fs.readFileSync("orca.png"); //https://shdw-drive.genesysgo.net/CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH/orca.png
     const fileToUpload: ShadowFile = {
         name:'orca.png',
         file:fileBuff
