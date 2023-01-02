@@ -1,14 +1,14 @@
 {
-    "name": "Orca Test",
-    "symbol": "Sea",
-    "description": "Orca for testing!",
+    "name": "Monkey Test",
+    "symbol": "Trees",
+    "description": "Monke for testing!",
     "external_url": "",
     "seller_fee_basis_points": 0,
-    "image":"https://shdw-drive.genesysgo.net/CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH/orca.png",
+    "image":"https://shdw-drive.genesysgo.net/CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH/monkey_1.png",
     "properties":{
         "files":[
             {
-                "uri":"https://shdw-drive.genesysgo.net/CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH/orca.png",
+                "uri":"https://shdw-drive.genesysgo.net/CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH/monkey_1.png",
                 "type":"image/png"
             }
         ],

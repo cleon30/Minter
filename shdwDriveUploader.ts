@@ -30,13 +30,13 @@ async function UploadCollectionJSON(){
     const bucket = "CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH";//createAccountBucket();
     // const fileBuff = fs.readFileSync("orca.json"); //https://shdw-drive.genesysgo.net/CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH/orca.png
     
-const numbers = Array.from(Array(3).keys());
+const numbers = Array.from(Array(30).keys());
 const files = numbers.map(idx=>
     {
-        const fileBuff = fs.readFileSync('orca_'+(idx+1)+'.png'); //https://shdw-drive.genesysgo.net/CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH/orca.png
-        console.log('orca_'+(idx+1)+'.png');
+        const fileBuff = fs.readFileSync('monkeys/monkeys_png/'+'monkey_'+(idx+1)+'.png'); //https://shdw-drive.genesysgo.net/CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH/orca.png
+        console.log('monkey_'+(idx+1)+'.png');
         const fileToUpload: ShadowFile = {
-        name:'orca_'+idx+'.png',
+        name:'monkey_'+(idx+1)+'.png',
         file:fileBuff
         }
         return fileToUpload;
