@@ -44,8 +44,8 @@ const files_images = numbers.map(idx=>
 
 const resp_1 = await drive.uploadMultipleFiles(new PublicKey(bucket), files_images);
 resp_1.forEach((r: any) => console.log(r.status));
-const resp_2 = await drive.uploadMultipleFiles(new PublicKey(bucket), files_json);
-resp_2.forEach((r: any) => console.log(r.status));
+// const resp_2 = await drive.uploadMultipleFiles(new PublicKey(bucket), files_json);
+// resp_2.forEach((r: any) => console.log(r.status));
 // console.log(resp.message);
 // console.log(resp.finalized_locations);
 };
