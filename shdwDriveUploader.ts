@@ -20,7 +20,7 @@ async function createAccountBucket(): Promise<string>{
     const drive = await new ShdwDrive(connection, wallet).init();
     const resp = await drive.createStorageAccount("Recipe Book","100MB","v2");
     console.log(resp.transaction_signature);
-    console.log(resp.shdw_bucket);
+    console.log(resp.shdw_bucket); 
     return resp.shdw_bucket;
 }
 
@@ -28,13 +28,23 @@ async function createAccountBucket(): Promise<string>{
 async function UploadCollectionJSON(){
     const drive = await new ShdwDrive(connection, wallet).init();
     const bucket = "CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH";//createAccountBucket();
-    const fileBuff = fs.readFileSync("orca.json"); //https://shdw-drive.genesysgo.net/CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH/orca.png
-    const fileToUpload: ShadowFile = {
-        name:'orca.json',
+    // const fileBuff = fs.readFileSync("orca.json"); //https://shdw-drive.genesysgo.net/CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH/orca.png
+    
+const numbers = Array.from(Array(3).keys());
+const files = numbers.map(idx=>
+    {
+        const fileBuff = fs.readFileSync('orca_'+(idx+1)+'.png'); //https://shdw-drive.genesysgo.net/CL4s5cFeeRe4tc4ihrPkNpbqWNVykKyZRtHvdwTSWDnH/orca.png
+        console.log('orca_'+(idx+1)+'.png');
+        const fileToUpload: ShadowFile = {
+        name:'orca_'+idx+'.png',
         file:fileBuff
-    }
-const resp = await drive.uploadFile(new PublicKey(bucket), fileToUpload, "v2");
-console.log(resp.message);
-console.log(resp.finalized_locations);
+        }
+        return fileToUpload;
+    });
+
+const resp = await drive.uploadMultipleFiles(new PublicKey(bucket), files);
+resp.forEach((r: any) => console.log(r.status));
+// console.log(resp.message);
+// console.log(resp.finalized_locations);
 };
 UploadCollectionJSON();
