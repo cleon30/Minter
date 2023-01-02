@@ -20,11 +20,12 @@ metaplex.use(keypairIdentity(collectionAuthority));
 //     isCollection: true,
 //     updateAuthority: collectionAuthority,
 // });
-const collectionNft = new PublicKey("BrJH63SoYNHYGAWA2FDGUkctkKaVi3xAosnc4URuoWVr");
+const collectionNft = new PublicKey("EhwVvPPoNUi8JbExsRkJhKRUxyB127MdtjzhkUAsmTcu");
 // console.log(collectionNft.address.toBase58());
 const { candyMachine } = await metaplex.candyMachines().create({
+  
   itemsAvailable: toBigNumber(100),
-  sellerFeeBasisPoints: 333, // 3.33%
+  sellerFeeBasisPoints: 0, // 3.33%
   collection: {
     address: collectionNft,
     updateAuthority: metaplex.identity(),
