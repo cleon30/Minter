@@ -1,4 +1,4 @@
-import {keypairIdentity, Metaplex,MintAuthorityMustBeSignerToMintInitialSupplyError,mintCandyMachineV2Operation,toBigNumber} from "@metaplex-foundation/js";
+import {keypairIdentity, Metaplex,MintAuthorityMustBeSignerToMintInitialSupplyError,mintCandyMachineV2Operation,sol,toBigNumber, toDateTime} from "@metaplex-foundation/js";
 import {clusterApiUrl, Connection, Keypair, PublicKey} from "@solana/web3.js";
 const fs = require("fs");
 const anchor = require("@project-serum/anchor");
@@ -30,7 +30,7 @@ const { candyMachine } = await metaplex.candyMachines().create({
     updateAuthority: metaplex.identity(),
   },
   isMutable : true,
-   symbol:"PROJECT",
+  symbol:"PROJECT",
    maxEditionSupply:toBigNumber(0),
    creators:[
      {
@@ -46,7 +46,9 @@ const { candyMachine } = await metaplex.candyMachines().create({
      uriLength:43,
      isSequential:false,
    },
-  
+  guards:{
+    solPayment:{amount: sol(0.01), destination : collectionAuthority.publicKey},
+  }
 });
 };
 
